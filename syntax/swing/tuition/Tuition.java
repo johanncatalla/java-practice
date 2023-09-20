@@ -1,14 +1,17 @@
 import javax.swing.*;
-import java.awt.event.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.text.DecimalFormat;
+import java.util.Objects;
 
 public class Tuition extends JDialog {
-    String name, program, year, modeOfPayment, paymentDescription;
+    String name, program, year, modeOfPayment, paymentDescription = "", install;
     String courseDesc="";
     double fee, amountDiscountInterest, totalFee;
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
-    private JTextField textField1;
     private JComboBox course;
     private JComboBox yrLevel;
     private JTextField studentName;
@@ -21,29 +24,10 @@ public class Tuition extends JDialog {
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
 
-        buttonOK.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onOK();
-            }
-        });
-
-        buttonCancel.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onCancel();
-            }
-        });
-
-        cashRadioButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onCash();
-            }
-        });
-
-        installmentRadioButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onInstallment();
-            }
-        });
+        buttonOK.addActionListener(e -> onOK());
+        buttonCancel.addActionListener(e -> onCancel());
+        cashRadioButton.addActionListener(e -> onCash());
+        installmentRadioButton.addActionListener(e -> onInstallment());
 
         // call onCancel() when cross is clicked
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -54,11 +38,7 @@ public class Tuition extends JDialog {
         });
 
         // call onCancel() on ESCAPE
-        contentPane.registerKeyboardAction(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onCancel();
-            }
-        }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+        contentPane.registerKeyboardAction(e -> onCancel(), KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
     private void onCash() {
@@ -73,12 +53,35 @@ public class Tuition extends JDialog {
     }
 
     private void onInstallment() {
-        dispose();
+        DecimalFormat decimal = new DecimalFormat("0.00");
+        modeOfPayment = "INSTALLMENT";
+        totalFee = Double.parseDouble(tuitionFee.getText());
+        install = decimal.format(totalFee / 5);
+        paymentDescription = "DOWN PAYMENT: "+install+"\nPRELIM: "+install+"\nMIDTERM: "+install
+                +"\nSEMIFINALS: "+install+"\nFINALS: "+install;
+        JOptionPane.showMessageDialog(null, "INSTALLMENT\n"+paymentDescription+"\nTOTAL: "+totalFee);
     }
 
     private void onOK() {
-        // add your code here
-        dispose();
+        name = studentName.getText();
+        program = Objects.requireNonNull(course.getSelectedItem()).toString();
+        if (program.equals("BSIT"))
+            courseDesc = "BS Information Technology";
+        else if (program.equals("BSCS"))
+            courseDesc = "BS Computer Science";
+        else
+            courseDesc = "BS Entertainment and Multimedia Computing";
+        year = Objects.requireNonNull(yrLevel.getSelectedItem()).toString();
+        if (modeOfPayment.equals("CASH")) {
+            JOptionPane.showMessageDialog(null, "PAYMENT DETAILS\nNAME: "+name
+                    +"\nCOURSE: "+courseDesc+"\nYEAR LEVEL: "+year+"\nFEE: "+fee+"\n\nMODE OF PAYMENT: "+modeOfPayment
+                    +"\n"+paymentDescription+": "+amountDiscountInterest+"\nTOTAL FEE: "+totalFee);
+        } else {
+            JOptionPane.showMessageDialog(null, "PAYMENT DETAILS\nNAME: "+name
+                    +"\nCOURSE: "+courseDesc+"\nYEAR LEVEL: "+year+"\nFEE: "+fee+"\n\nMODE OF PAYMENT: "+modeOfPayment
+                    +"\n"+paymentDescription+"\nTOTAL FEE: "+totalFee);
+        }
+
     }
 
     private void onCancel() {
