@@ -46,7 +46,7 @@ public class Tuition extends JDialog {
         modeOfPayment = "CASH";
         paymentDescription = "DISCOUNT";
         fee = Double.parseDouble(tuitionFee.getText());
-        amountDiscountInterest = pay.getDiscount(.10, fee);
+        amountDiscountInterest = pay.getDiscountInterest(.10, fee);
         totalFee = pay.computeDiscount(fee, amountDiscountInterest);
         JOptionPane.showMessageDialog(null, "CASH\nFEE: "+fee
                     +"\nDISCOUNT: "+amountDiscountInterest+"\nDISCOUNTED FEE: "+totalFee);
@@ -54,12 +54,16 @@ public class Tuition extends JDialog {
 
     private void onInstallment() {
         DecimalFormat decimal = new DecimalFormat("0.00");
+        Pay pay = new Pay();
         modeOfPayment = "INSTALLMENT";
-        totalFee = Double.parseDouble(tuitionFee.getText());
-        install = decimal.format(totalFee / 5);
-        paymentDescription = "DOWN PAYMENT: "+install+"\nPRELIM: "+install+"\nMIDTERM: "+install
+        paymentDescription = "INTEREST";
+        fee = Double.parseDouble(tuitionFee.getText());
+        amountDiscountInterest = pay.getDiscountInterest(0.10, fee);
+        totalFee = pay.computeInterest(fee, amountDiscountInterest);
+        install = decimal.format(totalFee / 4);
+        paymentDescription = "\nFEE: "+fee+"\nINTEREST: 10% ("+decimal.format(amountDiscountInterest)+")"+"\n"+"\nPRELIM: "+install+"\nMIDTERM: "+install
                 +"\nSEMIFINALS: "+install+"\nFINALS: "+install;
-        JOptionPane.showMessageDialog(null, "INSTALLMENT\n"+paymentDescription+"\nTOTAL: "+totalFee);
+        JOptionPane.showMessageDialog(null, paymentDescription+"\nTOTAL: "+totalFee);
     }
 
     private void onOK() {
