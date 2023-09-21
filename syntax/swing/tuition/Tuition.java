@@ -6,7 +6,7 @@ import java.text.DecimalFormat;
 import java.util.Objects;
 
 public class Tuition extends JDialog {
-    String name, program, year, modeOfPayment, paymentDescription = "", install;
+    String name, program, year, modeOfPayment, paymentDescription = "", install, studentType;
     String courseDesc="";
     double fee, amountDiscountInterest, totalFee;
     private JPanel contentPane;
@@ -18,6 +18,8 @@ public class Tuition extends JDialog {
     private JTextField tuitionFee;
     private JRadioButton cashRadioButton;
     private JRadioButton installmentRadioButton;
+    private JRadioButton oldRadioButton;
+    private JRadioButton newTransfereeRadioButton;
 
     public Tuition() {
         setContentPane(contentPane);
@@ -28,6 +30,8 @@ public class Tuition extends JDialog {
         buttonCancel.addActionListener(e -> onCancel());
         cashRadioButton.addActionListener(e -> onCash());
         installmentRadioButton.addActionListener(e -> onInstallment());
+        oldRadioButton.addActionListener(e -> onCheckOld());
+        newTransfereeRadioButton.addActionListener(e -> onCheckNew());
 
         // call onCancel() when cross is clicked
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -41,6 +45,12 @@ public class Tuition extends JDialog {
         contentPane.registerKeyboardAction(e -> onCancel(), KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
+    private void onCheckNew() {
+        studentType = "New/Transferee";
+    }
+    private void onCheckOld() {
+        studentType = "Old";
+    }
     private void onCash() {
         Pay pay = new Pay();
         modeOfPayment = "CASH";
@@ -78,11 +88,11 @@ public class Tuition extends JDialog {
         year = Objects.requireNonNull(yrLevel.getSelectedItem()).toString();
         if (modeOfPayment.equals("CASH")) {
             JOptionPane.showMessageDialog(null, "PAYMENT DETAILS\nNAME: "+name
-                    +"\nCOURSE: "+courseDesc+"\nYEAR LEVEL: "+year+"\nFEE: "+fee+"\n\nMODE OF PAYMENT: "+modeOfPayment
+                    +"\nCOURSE: "+courseDesc+"\nYEAR LEVEL: "+year+"\nSTUDENT TYPE: "+studentType+"\nFEE: "+fee+"\n\nMODE OF PAYMENT: "+modeOfPayment
                     +"\n"+paymentDescription+": "+amountDiscountInterest+"\nTOTAL FEE: "+totalFee);
         } else {
             JOptionPane.showMessageDialog(null, "PAYMENT DETAILS\nNAME: "+name
-                    +"\nCOURSE: "+courseDesc+"\nYEAR LEVEL: "+year+"\nFEE: "+fee+"\n\nMODE OF PAYMENT: "+modeOfPayment
+                    +"\nCOURSE: "+courseDesc+"\nYEAR LEVEL: "+year+"\nSTUDENT TYPE: "+studentType+"\nFEE: "+fee+"\n\nMODE OF PAYMENT: "+modeOfPayment
                     +"\n"+paymentDescription+"\nTOTAL FEE: "+totalFee);
         }
 
