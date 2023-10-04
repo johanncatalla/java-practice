@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Pizza">
+  <grid id="cbd77" binding="contentPane" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="10" left="10" bottom="10" right="10"/>
+    <constraints>
+      <xy x="48" y="54" width="457" height="342"/>
+    </constraints>
+    <properties>
+      <background color="-14967"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="e3588" layout-manager="GridLayoutManager" row-count="6" column-count="11" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-14967"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="38eb2" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="11" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Courier New" size="24" style="1"/>
+              <text value="PIZZA PARLOR"/>
+            </properties>
+          </component>
+          <component id="b5847" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Courier New"/>
+              <text value="Flavor"/>
+            </properties>
+          </component>
+          <component id="e2677" class="javax.swing.JComboBox" binding="flavorCombo">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="9" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-14967"/>
+              <font name="Courier New"/>
+              <model>
+                <item value="Hawaiian"/>
+                <item value="Overload"/>
+                <item value="Pepperoni"/>
+              </model>
+            </properties>
+          </component>
+          <component id="9d995" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Courier New"/>
+              <text value="Quantity"/>
+            </properties>
+          </component>
+          <component id="f3fb7" class="javax.swing.JTextField" binding="quantityField">
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="9" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-14967"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <grid id="1fbe6" layout-manager="GridLayoutManager" row-count="3" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="4" column="1" row-span="1" col-span="9" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-14967"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="ec23" class="javax.swing.JRadioButton" binding="soloRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-14967"/>
+                  <font name="Courier New"/>
+                  <text value="Solo"/>
+                </properties>
+              </component>
+              <component id="c2a53" class="javax.swing.JRadioButton" binding="doubleRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-14967"/>
+                  <font name="Courier New"/>
+                  <text value="Double"/>
+                </properties>
+              </component>
+              <component id="663a" class="javax.swing.JRadioButton" binding="familyRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-14967"/>
+                  <font name="Courier New"/>
+                  <text value="Family"/>
+                </properties>
+              </component>
+              <component id="aeaa9" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Courier New"/>
+                  <text value="Price"/>
+                </properties>
+              </component>
+              <component id="e1188" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Courier New"/>
+                  <text value="TOTAL AMOUNT"/>
+                </properties>
+              </component>
+              <component id="e7465" class="javax.swing.JButton" binding="buttonOK">
+                <constraints>
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-12928971"/>
+                  <font name="Courier New" style="1"/>
+                  <text value="PAY"/>
+                </properties>
+              </component>
+              <component id="5723f" class="javax.swing.JButton" binding="buttonCancel">
+                <constraints>
+                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-13456190"/>
+                  <font name="Courier New" style="1"/>
+                  <text value="PRINT RECEIPT"/>
+                </properties>
+              </component>
+              <component id="ab45d" class="javax.swing.JLabel" binding="priceField">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Courier New" size="18" style="1"/>
+                  <text value=" "/>
+                </properties>
+              </component>
+              <component id="802ae" class="javax.swing.JLabel" binding="totalField">
+                <constraints>
+                  <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Courier New" size="18" style="1"/>
+                  <text value=" "/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <component id="15c4e" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Courier New"/>
+              <text value="Size"/>
+            </properties>
+          </component>
+          <component id="bddcf" class="javax.swing.JRadioButton" binding="dineInRadioButton" default-binding="true">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-3211286"/>
+              <font name="Courier New"/>
+              <text value="Dine In"/>
+            </properties>
+          </component>
+          <component id="70cd9" class="javax.swing.JRadioButton" binding="takeOutRadioButton" default-binding="true">
+            <constraints>
+              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-3211286"/>
+              <font name="Courier New"/>
+              <selected value="false"/>
+              <text value="Take Out"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+  <buttonGroups>
+    <group name="dineOrTake">
+      <member id="70cd9"/>
+      <member id="bddcf"/>
+    </group>
+    <group name="size">
+      <member id="ec23"/>
+      <member id="c2a53"/>
+      <member id="663a"/>
+    </group>
+  </buttonGroups>
+</form>
